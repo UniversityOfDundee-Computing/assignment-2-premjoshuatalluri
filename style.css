@@ -1,7 +1,24 @@
-li{
-  list-style: none;
-  padding-left: 20px;
+header {
+  padding: 20px;
 }
-a{
+.logo-light {
+  width: 170px;
+  height: 80px;
+}
+
+li{ 
+  list-style: none;
+  padding-right:80px; }
+
+.navbar-link { 
+  font-family: Poppins; 
   text-decoration: none;
+  padding: 20px;
+  font-size: large;
+  font-weight: 400;
+  color: rgb(35, 35, 35);
+  transition: color 0.21s;
+}
+.navbar-link:hover {
+  color: lightcoral;
 }
