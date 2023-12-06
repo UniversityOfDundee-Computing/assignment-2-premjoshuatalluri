@@ -22,3 +22,10 @@ li{
 .navbar-link:hover {
   color: lightcoral;
 }
+
+/* hero */
+.hero{
+  background-image: url(assets/hero-banner.jpg);
+  height: 400px;
+
+}
