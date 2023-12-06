@@ -1,3 +1,13 @@
+
+h1{
+  font-family: 'DM Serif Display', serif;
+}
+h2,p{
+  font-family: Poppins;
+}
+
+
+
 header {
   padding: 20px;
 }
@@ -11,7 +21,6 @@ li{
   padding-right:80px; }
 
 .navbar-link { 
-  font-family: Poppins; 
   text-decoration: none;
   padding: 20px;
   font-size: large;
@@ -25,7 +34,35 @@ li{
 
 /* hero */
 .hero{
+  padding-inline: 20px;
+}
+.banner-card{
   background-image: url(assets/hero-banner.jpg);
-  height: 400px;
-
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 480px;
+  border-radius: 10px;
+  padding-inline: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-content: center;
+  text-align: center;
+}
+.hero .search-wrapper {
+  color: transparent;
+  border-radius:4px;
+  max-width: 480px;
+  width: 100%;
+  margin-inline: auto;
+  margin-block: 16px 12px;
+  overflow: hidden;
+}
+.search-field{
+  border: 0px;
+  border-radius: 4px;
+  height: 40px;
+  width: 750px;
+  padding: 20px;
+  outline: none;
 }
