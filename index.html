@@ -66,72 +66,32 @@
         <h1 class="head1 d-flex justify-content-center p-4">Categories</h1>
         <div class="container d-flex justify-content-between">
           <div class="categories-card">
-            <a href="/" >Indian</a>
+            <a href="/" >Vegetarian</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Chinese</a>
+            <a href="/" >Vegan</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Indian</a>
+            <a href="/" >Chicken</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Chinese</a>
+            <a href="/" >Beef</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Chinese</a>
+            <a href="/" >Lamb</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Indian</a>
+            <a href="/" >Seafood</a>
           </div>
           <div class="categories-card">
-            <a href="/" >Chinese</a>
+            <a href="/" >Dessert</a>
           </div>
         </div>
       </section>
       <!-- Dishes Section -->
       <section class="dishes">
         <h1 class="head1 d-flex justify-content-center pb-2">Popular Recipes</h1>
-        <div class="dishes-card d-flex justify-content-between">
-          <div class="dish-card">
-            <img src="assets/images/dish/Dish1.jpeg" class="card-img rounded-1" alt="">
-            <div class="body-card">
-              <h5>Margharettia Pizza</h5>
-              <p>Italian</p>
-              <a href="#" class="card-button"> View</a>
-            </div>
-          </div>
-          <div class="dish-card">
-            <img src="assets/images/dish/Dish1.jpeg" class="card-img rounded-1" alt="">
-            <div class="body-card">
-              <h5>Margharettia Pizza</h5>
-              <p>Italian</p>
-              <a href="#" class="card-button"> View</a>
-            </div>
-          </div>
-          <div class="dish-card">
-            <img src="assets/images/dish/Dish1.jpeg" class="card-img rounded-1" alt="">
-            <div class="body-card">
-              <h5>Margharettia Pizza</h5>
-              <p>Italian</p>
-              <a href="#" class="card-button"> View</a>
-            </div>
-          </div>
-          <div class="dish-card">
-            <img src="assets/images/dish/Dish1.jpeg" class="card-img rounded-1" alt="">
-            <div class="body-card">
-              <h5>Margharettia Pizza</h5>
-              <p>Italian</p>
-              <a href="#" class="card-button"> View</a>
-            </div>
-          </div>
-          <div class="dish-card">
-            <img src="assets/images/dish/Dish1.jpeg" class="card-img rounded-1" alt="">
-            <div class="body-card">
-              <h5>Margharettia Pizza</h5>
-              <p>Italian</p>
-              <a href="#" class="card-button"> View</a>
-            </div>
-          </div>
+        <div class="dishes-card d-flex justify-content-between" id="dishContainer">
         </div>
       </section>
       <!-- Caall To Action -->
@@ -151,7 +111,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-text">
-      <p class="rights d-flex justify-content-center">All Rights Reserved</p>
+      <p class="rights d-flex justify-content-center">© All Rights Reserved</p>
       <p class="follow">Follow the Creator</p>
     </div>
     <div class="socials">
@@ -162,6 +122,31 @@
     <i class="fa-brands fa-square-x-twitter"></i>
     </div>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetching data from TheMealDB API
+      fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
+        .then(response => response.json())
+        .then(data => {
+          const meals = data.meals.slice(0, 5);
+          const dishContainer = document.getElementById("dishContainer");
+          meals.forEach(meal => {
+            const dishCard = document.createElement("div");
+            dishCard.className = "dish-card";
+            dishCard.innerHTML = `
+              <img src="${meal.strMealThumb}" class="card-img rounded-1" alt="${meal.strMeal}">
+              <div class="body-card">
+                <h5>${meal.strMeal}</h5>
+                <p>${meal.strArea}</p>
+                <a href="${meal.strSource}" class="card-button">View</a>
+              </div>
+            `;
+            dishContainer.appendChild(dishCard);
+          });
+        })
+        .catch(error => console.error("Error fetching data:", error));
+    });
+  </script>
 </body>
 
 </html>
