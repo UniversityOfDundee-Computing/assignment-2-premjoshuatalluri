@@ -91,11 +91,6 @@
         </div>
       </section>
       <!-- Dishes Section -->
-      <!-- <section class="dishes">
-        <h1 class="head1 d-flex justify-content-center pb-2">Popular Recipes</h1>
-        <div class="dishes-card d-flex justify-content-between" id="dishContainer">
-        </div>
-      </section>  -->
       <section class="dishes">
         <h1 class="head1 d-flex justify-content-center pb-2">Popular Recipes</h1>
     
@@ -149,7 +144,7 @@
 
   let startIndex = 0;
 
-  // Fetching data from TheMealDB API
+  // Fetching data from TheMealDB 
   fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
     .then(response => response.json())
     .then(data => {
