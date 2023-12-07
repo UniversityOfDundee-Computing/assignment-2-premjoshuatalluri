@@ -151,3 +151,24 @@ li{
   min-width: 100%;
   min-height: 100%;
 }
+.cta-button {
+  padding: 8px 25px 8px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: rgba(176, 213, 231, 0.8);
+} 
+/* Footer  */
+.footer {
+  text-align: center;
+}
+.fa-brands {
+  padding:0px 10px;
+  cursor: pointer;
+}
+.follow {
+  font-size: 15px;
+}
+.rights {
+  color: rgb(196, 113, 45);
+}
