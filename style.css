@@ -38,7 +38,7 @@ li{
   padding-inline: 20px;
 }
 .banner-card{
-  background-image: url(assets/hero-banner.jpg);
+  background-image: url(assets/images/hero-banner.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -68,7 +68,6 @@ li{
   outline: none;
 }
 
-/* categories section */
 /* categories section */
 .categories, .dishes{
   padding: 20px;
@@ -105,3 +104,56 @@ li{
   filter: blur(0);
 }
 
+/* Dishes Section */
+
+.dish-card {
+  width: 230px;
+  border: none;
+}
+.card-button {
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: rgb(46, 46, 46);
+  background-color: rgba(176, 213, 231, 0.8);
+}
+
+/* dishes 2 */
+.dishes-2 {
+  padding: 20px;
+}
+.cta-card {
+  text-align: center;
+}
+
+/* CTA */
+.callToAction {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cta-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0,0,0,.5);
+  color: white;
+  margin-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+  width: 70%;
+  min-height: 40vh;
+  border-radius: 10px;
+  padding: 40px;
+}
+.video-bg {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 100%;
+  min-height: 100%;
+}
