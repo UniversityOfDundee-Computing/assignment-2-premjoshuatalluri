@@ -2,7 +2,7 @@
 h1{
   font-family: 'DM Serif Display', serif;
 }
-h2,p{
+h2,h3,p{
   font-family: Poppins;
 }
 
@@ -207,4 +207,17 @@ li{
 }
 .rights {
   color: rgb(196, 113, 45);
+}
+
+
+/* Recipe Page */
+.recipe-container {
+  padding: 50px;
+}
+.recipe-img {
+  width: 400px;
+  border-radius: 10px;
+}
+.recipe-info {
+  padding-left: 20px;
 }
