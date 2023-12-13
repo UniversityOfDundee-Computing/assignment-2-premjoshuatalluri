@@ -1,8 +1,8 @@
 
-h1{
+h1,h3{
   font-family: 'DM Serif Display', serif;
 }
-h2,h3,p{
+h2,p{
   font-family: Poppins;
 }
 
@@ -270,4 +270,12 @@ header {
 
 .accordion input:checked~.accordion-content {
   display: block;
+}
+
+embed {
+  width: 720px; 
+  height: 370px; 
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
 }
