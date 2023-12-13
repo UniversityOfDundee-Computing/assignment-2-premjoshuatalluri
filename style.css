@@ -23,7 +23,7 @@ header {
 
 .navbar-link { 
   text-decoration: none;
-  padding: 20px;
+  padding: 20%;
   font-size: large;
   font-weight: 400;
   color: rgb(35, 35, 35);
@@ -308,4 +308,44 @@ header {
   font-size: 16px;
   text-align: start; 
   max-width: 200px; 
+}
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .header{
+    width: 100%;
+  }
+  .logo-light {
+    width: 80px;
+    height: 40px;
+  }
+  
+  .navbar-list li{ 
+    padding-right:40px; 
+  }
+
+  .recipe-img {
+    width: 100%;
+  }
+  .recipe-container {
+    flex-wrap: wrap;
+    padding: 40px 40px 0px 40px;
+  }
+  .recipe-info {
+    padding-top: 10px;
+  }
+  .accordion {
+    padding: 10px 50px;
+  }
+  .recipe-video iframe {
+    width: 80%; 
+    height: 300px; 
+  }
+  .restaurants-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+  }
+  .restaurants-list li{
+    font-size: 08px;
+  }
 }

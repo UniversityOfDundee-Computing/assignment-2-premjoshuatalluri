@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const restaurantItem = document.createElement('li');
 
                 // Extract relevant information from the place object
-                const internationalPhoneNumber = place.international_phone_number || 'International contact number not available';
+                const internationalPhoneNumber = place.international_phone_number || 'Number not available';
 
                 // Construct HTML for the restaurant item
                 restaurantItem.innerHTML = `
