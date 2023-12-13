@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("prevButton");
 
-  let startIndex = 0;
+  const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes","Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
 
-  // Fetching data from TheMealDB 
-  fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
-    .then(response => response.json())
-    .then(data => {
-      const meals = data.meals.slice(0, 10); // Fetching up to 10 dishes initially
+  // Fetching data for specific dishes from TheMealDB 
+  Promise.all(dishNames.map(dish => fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dish}`)
+    .then(response => response.json())))
+    .then(dishResponses => {
+      const meals = dishResponses.map(response => response.meals[0]); // Extracting the first meal for each dish
       displayDishes(meals);
 
       // Update dishes on next button click
@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     })
     .catch(error => console.error("Error fetching data:", error));
+
+  let startIndex = 0;
 
   // Function to display dishes based on startIndex
   function displayDishes(meals) {
