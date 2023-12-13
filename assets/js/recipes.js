@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Fetch data from MealDB API
-  fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772")
+  // Extract mealId from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const mealId = urlParams.get('mealId');
+
+  if (!mealId) {
+    console.error('Meal ID not found in the URL');
+    return;
+  }
+
+  // Fetch data for the specified meal ID
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(response => response.json())
     .then(data => {
       // Update HTML with the fetched recipe data
@@ -70,23 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(placesData => {
               placesData.results.slice(0, 5).forEach(place => {
                 const restaurantItem = document.createElement('li');
-            
+
                 // Extract relevant information from the place object
-                const formattedPhoneNumber = place.formatted_phone_number || 'Contact number not available';
                 const internationalPhoneNumber = place.international_phone_number || 'International contact number not available';
-                const website = place.website || 'Website not available';
-            
+
                 // Construct HTML for the restaurant item
                 restaurantItem.innerHTML = `
-                    <strong>${place.name}</strong><br>
-                    <strong>Address:</strong><br>${place.vicinity.replace(/,/g, '<br>')}<br>
-                    <strong>Contact number:</strong> ${formattedPhoneNumber !== undefined && formattedPhoneNumber !== null ? `<a href="tel:${formattedPhoneNumber}">${formattedPhoneNumber}</a>` : 'Contact number not available'}<br>
+                  <strong>${place.name}</strong><br>
+                  <strong>Address:</strong><br>${place.vicinity.replace(/,/g, '<br>')}<br>
+                  <strong>Contact number:</strong> ${internationalPhoneNumber}<br>
                 `;
-            
+
                 // Append the restaurant item to the list
                 nearbyRestaurantsList.appendChild(restaurantItem);
-            });
-            
+              });
             })
             .catch(error => console.error('Error fetching nearby restaurants:', error));
         });
