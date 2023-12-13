@@ -284,3 +284,28 @@ header {
   box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
               -6px -6px 10px -1px rgba(255,255,255,0.7);
 }
+/* Nearby Restaurants section */
+.nearby-restaurants {
+  margin-top: 30px;
+}
+
+.nearby-restaurants .video-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nearby-restaurants ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
+.nearby-restaurants li {
+  margin: 0 10px 10px 0; 
+  font-size: 18px;
+  text-align: start; 
+  max-width: 200px; 
+}
