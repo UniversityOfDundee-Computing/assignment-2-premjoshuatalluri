@@ -1,8 +1,8 @@
 
-h1{
+h1,h3{
   font-family: 'DM Serif Display', serif;
 }
-h2,h3,p{
+h2,p{
   font-family: Poppins;
 }
 
@@ -17,7 +17,7 @@ header {
   height: 80px;
 }
 
-li{ 
+.navbar-list li{ 
   list-style: none;
   padding-right:80px; }
 
@@ -211,13 +211,76 @@ li{
 
 
 /* Recipe Page */
-.recipe-container {
-  padding: 50px;
+.recipe-box li{
+  list-style: none;
 }
+.recipe-container {
+  padding: 50px 50px 0px 50px;
+}
+
 .recipe-img {
   width: 400px;
   border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
 }
+
 .recipe-info {
   padding-left: 20px;
+}
+
+.accordion {
+  padding: 50px 50px;
+  max-width: 100%;
+}
+
+.accordion input {
+  display: none;
+}
+
+.accordion label {
+  display: block;
+  padding: 10px;
+  background-color: #e3edf7;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.accordion label:hover {
+  background-color: #e3edf7;
+}
+
+.accordion input:checked+label {
+  background-color: #e3edf7;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+  background-color: #e3edf7;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15);
+  border-radius: 0px 0px 5px 5px;
+  transition: display 5s ease;
+}
+
+.accordion input:checked~.accordion-content {
+  display: block;
+}
+/* recipe-video section */
+
+.recipe-video {
+  margin-top: 20px; 
+}
+
+.recipe-video iframe {
+  width: 720px; 
+  height: 370px; 
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
 }
