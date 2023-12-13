@@ -271,8 +271,13 @@ header {
 .accordion input:checked~.accordion-content {
   display: block;
 }
+/* recipe-video section */
 
-embed {
+.recipe-video {
+  margin-top: 20px; 
+}
+
+.recipe-video iframe {
   width: 720px; 
   height: 370px; 
   border-radius: 10px;
