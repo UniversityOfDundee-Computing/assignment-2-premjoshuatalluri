@@ -335,8 +335,11 @@ header {
 }
 .filter-section .lists {
   display: flex;
+  flex-wrap: wrap;
 }
-.list-1 {
+
+.list-1,.list-2 {
+  flex-basis: calc(50% - 20px); 
   padding-right: 20px;
 }
 .filter-section li {
@@ -351,7 +354,7 @@ header {
   box-shadow:  6px 6px 10px -1px rgba(0,0,0,0.15),
   -6px -6px 10px -1px rgba(255,255,255,0.7);
   width: 100%;
-  padding: 08px;
+  padding: 8px;
 }
 
 /* Result section */
@@ -363,9 +366,9 @@ header {
 }
 .result-tab {
   margin: 0% 2% 2% 0%;
+  width: 200px;
 }
 .result-tab img{
-  width: 100%;
   height: 200px;
   border-radius: 8px;
   box-shadow:  6px 6px 10px -1px rgba(0,0,0,0.15),
