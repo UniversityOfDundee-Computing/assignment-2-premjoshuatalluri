@@ -22,14 +22,19 @@ function updateResults(meals) {
 
       const areaText = meal.strArea ? meal.strArea : 'Unknown Area';
 
-      console.log('Meal:', meal); // Log the entire meal object to inspect its structure
-
       resultTab.innerHTML = `
         <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
         <h2 class="dish-name">${meal.strMeal}</h2>
         <p class="dish-area">${areaText}</p>
-        <button class="dish-button">View</button>
+        <button class="dish-button" data-meal-id="${meal.idMeal}">View</button>
       `;
+
+      // Add event listener to the "View" button
+      resultTab.querySelector('.dish-button').addEventListener('click', function () {
+        const mealId = meal.idMeal;
+        // Redirect to recipe.html with the mealId as a query parameter
+        window.location.href = `recipe.html?mealId=${mealId}`;
+      });
 
       resultSection.appendChild(resultTab);
     });
@@ -38,6 +43,7 @@ function updateResults(meals) {
     resultSection.innerHTML = '<p>No results found</p>';
   }
 }
+
 
 
 
@@ -132,8 +138,6 @@ async function filterDishes(selectedCuisines, selectedCategories) {
     return null;
   }
 }
-
-
 
 // Event listener for the "Apply Filters" button
 const filterButton = document.querySelector('.filter-button');
