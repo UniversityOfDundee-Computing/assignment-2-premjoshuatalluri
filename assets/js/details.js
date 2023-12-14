@@ -91,42 +91,48 @@ function getSelectedValues(selector) {
 
 async function filterDishes(selectedCuisines, selectedCategories) {
   try {
-    // Convert selectedCategories to an array
-    const categoriesArray = Array.isArray(selectedCategories) ? selectedCategories : [selectedCategories];
+    let combinedMeals = [];
 
-    // Fetch dishes based on selected categories
-    const categoryResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + categoriesArray.map(category => category.trim()).join(','));
-    const categoryData = await categoryResponse.json();
-    const categoryMeals = categoryData.meals || [];
+    if (selectedCuisines.length > 0 && selectedCategories.length > 0) {
+      // Multiple cuisines and categories or their combinations
+      const categoryResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + selectedCategories.map(category => category.trim()).join(','));
+      const categoryData = await categoryResponse.json();
+      const categoryMeals = categoryData.meals || [];
 
-    // Fetch complete meal details for selected categories
-    const categoryDetails = await Promise.all(categoryMeals.map(async meal => {
+      const areaResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=' + selectedCuisines.map(area => area.trim()).join(','));
+      const areaData = await areaResponse.json();
+      const areaMeals = areaData.meals || [];
+
+      // Combine the results based on common meal IDs
+      combinedMeals = categoryMeals.filter(categoryMeal =>
+        areaMeals.some(areaMeal => areaMeal.idMeal === categoryMeal.idMeal)
+      );
+    } else if (selectedCuisines.length > 0) {
+      // Multiple cuisines
+      const areaResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=' + selectedCuisines.map(area => area.trim()).join(','));
+      const areaData = await areaResponse.json();
+      combinedMeals = areaData.meals || [];
+    } else if (selectedCategories.length > 0) {
+      // Multiple categories
+      const categoryResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + selectedCategories.map(category => category.trim()).join(','));
+      const categoryData = await categoryResponse.json();
+      combinedMeals = categoryData.meals || [];
+    }
+
+    // Fetch complete meal details for the combined results
+    const combinedDetails = await Promise.all(combinedMeals.map(async meal => {
       const mealResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
       const mealData = await mealResponse.json();
       return mealData.meals[0];
     }));
 
-    // Fetch dishes based on selected cuisines
-    const areaResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=' + selectedCuisines.map(area => area.trim()).join(','));
-    const areaData = await areaResponse.json();
-    const areaMeals = areaData.meals || [];
-
-    // Fetch complete meal details for selected cuisines
-    const areaDetails = await Promise.all(areaMeals.map(async meal => {
-      const mealResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
-      const mealData = await mealResponse.json();
-      return mealData.meals[0];
-    }));
-
-    // Combine the results
-    const combinedMeals = [...categoryDetails, ...areaDetails];
-
-    return combinedMeals;
+    return combinedDetails;
   } catch (error) {
     console.error('Error fetching filtered data:', error);
     return null;
   }
 }
+
 
 
 // Event listener for the "Apply Filters" button
