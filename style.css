@@ -309,6 +309,24 @@ header {
   text-align: start; 
   max-width: 200px; 
 }
+
+/* Search Page Styling */
+.search-seaction {
+  padding: 20px;
+}
+.search-box {
+  padding: 20px;
+}
+.search-box input {
+  border: none;
+  background-color: aliceblue;
+  padding: 10px;
+  width: 50%;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+  -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border-radius: 8px;
+  outline: none;
+}
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
   .header{
