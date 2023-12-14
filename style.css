@@ -327,6 +327,78 @@ header {
   border-radius: 8px;
   outline: none;
 }
+.filter-section {
+  padding: 20px;
+}
+.filter-section ul{
+  padding: 0px;
+}
+.filter-section .lists {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-1,.list-2 {
+  flex-basis: calc(50% - 20px); 
+  padding-right: 20px;
+}
+.filter-section li {
+  list-style: none;
+  padding: 2px;
+  width: 100px;
+}
+.filter-button {
+  border: none;
+  border-radius: 8px;
+  background-color: aliceblue;
+  box-shadow:  6px 6px 10px -1px rgba(0,0,0,0.15),
+  -6px -6px 10px -1px rgba(255,255,255,0.7);
+  width: 100%;
+  padding: 8px;
+}
+
+/* Result section */
+.result-section {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.result-tab {
+  margin: 0% 2% 2% 0%;
+  width: 200px;
+}
+.result-tab img{
+  height: 200px;
+  border-radius: 8px;
+  box-shadow:  6px 6px 10px -1px rgba(0,0,0,0.15),
+  -6px -6px 10px -1px rgba(255,255,255,0.7);
+}
+.dish-name{
+  margin: 0px;
+  font-size: 25px;
+  padding: 4% 0%;
+}
+.dish-area {
+  padding: 0px 0px 4% 0px;
+  margin: 0px;
+}
+.dish-button {
+  margin: 0px;
+  border: none;
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+
+
+
+
+
+
+
+
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
   .header{

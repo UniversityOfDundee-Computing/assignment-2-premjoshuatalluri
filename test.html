@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restaurant Details</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    #restaurant-details {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-<body>
-
-<div id="restaurant-details">
-  <h1>Restaurant Details</h1>
-  <div id="details-container"></div>
-
-  <script>
-    // Replace 'YOUR_API_KEY' with your actual Google Places API key
-    const apiKey = 'AIzaSyAmM8Oq1DEVYg9L3BH1ppZL9i5vAFWIRxA';
-    const placeId = 'ChIJh3-yqO1chkgRQG'; // You need to replace this with the actual place ID
-
-    const detailsContainer = document.getElementById('details-container');
-
-    // Fetch restaurant details from Google Places API
-    fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,formatted_address,international_phone_number&key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => {
-        const restaurantDetails = data.result;
-        displayDetails(restaurantDetails);
-      })
-      .catch(error => console.error('Error fetching restaurant details:', error));
-
-    // Display restaurant details in the HTML
-    function displayDetails(details) {
-      const name = details.name;
-      const address = details.formatted_address;
-      const contactNumber = details.international_phone_number;
-
-      const detailsHTML = `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Address:</strong> ${address}</p>
-        <p><strong>Contact Number:</strong> ${contactNumber}</p>
-      `;
-
-      detailsContainer.innerHTML = detailsHTML;
-    }
-  </script>
+<div class="filter-section sticky-filter">
+  <h2>Filters</h2>
+  <p>Cusine</p>
+  <div class="lists">
+    <div class="list-1">
+      <ul>
+        <li><input type="checkbox" data-value="American"> American</li>
+        <li><input type="checkbox" data-value="British"> British</li>
+        <li><input type="checkbox" data-value="Canadian"> Canadian</li>
+        <li><input type="checkbox" data-value="Chinese"> Chinese</li>
+        <li><input type="checkbox" data-value="French"> French</li>
+        <li><input type="checkbox" data-value="Indian"> Indian</li>
+        <li><input type="checkbox" data-value="Italian"> Italian</li>
+        <li><input type="checkbox" data-value="Japanese"> Japanese</li>
+        <li><input type="checkbox" data-value="Turkish"> Turkish</li>
+      </ul>
+    </div>
+  </div>
+  <p>Category</p>
+  <div class="lists d-flex">
+    <div class="list-2">
+      <ul>
+        <li><input type="checkbox" data-value="Beef"> Beef</li>
+        <li><input type="checkbox"> Chicken</li>
+        <li><input type="checkbox"> Dessert</li>
+        <li><input type="checkbox"> Lamb</li>
+        <li><input type="checkbox"> Pasta</li>
+        <li><input type="checkbox"> Goat</li>
+        <li><input type="checkbox"> Pork</li>
+        <li><input type="checkbox"> Seafood</li>
+        <li><input type="checkbox"> Vegan</li>
+        <li><input type="checkbox"> Vegetarian</li>
+      </ul>
+    </div>
+  </div>
+  <button class="filter-button">Apply Filters</button>
 </div>
-
-</body>
-</html>
