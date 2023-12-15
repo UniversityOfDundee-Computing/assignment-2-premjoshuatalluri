@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mealId = urlParams.get('mealId');
 
   if (!mealId) {
+    // Log an error if Meal ID is not found in the URL
     console.error('Meal ID not found in the URL');
     return;
   }
@@ -24,17 +25,20 @@ document.addEventListener("DOMContentLoaded", function () {
       ingredientsList.innerHTML = '';
       measurementsList.innerHTML = '';
 
+      // Loop through ingredients and measurements
       for (let i = 1; i <= 20; i++) {
         const ingredient = data.meals[0]['strIngredient' + i];
         const measurement = data.meals[0]['strMeasure' + i];
 
         if (ingredient && ingredient.trim() !== "") {
+          // Add ingredient to the list
           const ingredientItem = document.createElement('li');
           ingredientItem.innerText = ingredient;
           ingredientsList.appendChild(ingredientItem);
         }
 
         if (measurement && measurement.trim() !== "") {
+          // Add measurement to the list
           const measurementItem = document.createElement('li');
           measurementItem.innerText = measurement;
           measurementsList.appendChild(measurementItem);
@@ -49,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const videoUrl = data.meals[0].strYoutube;
 
       if (videoUrl) {
+        // Create and embed YouTube video frame
         const videoFrame = document.createElement('iframe');
         videoFrame.src = videoUrl.replace("watch?v=", "embed/");
         videoFrame.width = "560";
