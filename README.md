@@ -13,9 +13,7 @@ FlavorFiesta is your go-to culinary companion, offering a delightful exploration
 - [APIs Used](#apis-used)
 - [Paper Prototype](#paper-prototype)
 - [YouTube Links](#youtube-links)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Technologies Used
 
