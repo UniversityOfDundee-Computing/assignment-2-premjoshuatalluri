@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const dishSlider = document.getElementById("dishSlider");
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("prevButton");
+  const searchField = document.getElementById("searchInput"); // Added this line
 
   const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes","Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
-  
+
   // Fetching data for specific dishes from TheMealDB 
   Promise.all(dishNames.map(dish => fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dish}`)
     .then(response => response.json())))
@@ -55,4 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
       dishContainer.appendChild(dishCard);
     }
   }
+
+  // Event listener for the "Enter" key in the search input
+  searchField.addEventListener("keydown", function (event) {
+    if (event.key === 'Enter') {
+      const query = searchField.value.trim();
+      if (query.length > 0) {
+        // Redirect to detail.html with the entered dish name as a query parameter
+        window.location.href = `detail.html?dishName=${encodeURIComponent(query)}`;
+      }
+    }
+  });
 });
