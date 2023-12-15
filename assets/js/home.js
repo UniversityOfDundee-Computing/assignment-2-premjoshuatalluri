@@ -86,10 +86,19 @@ async function searchDishByCategory(category = '') {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
     const data = await response.json();
-    return data.meals;
+    
+    // Fetch area details for each meal in the category
+    const mealsWithArea = await Promise.all(data.meals.map(async meal => {
+      const areaResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
+      const areaData = await areaResponse.json();
+      return { ...meal, strArea: areaData.meals[0].strArea };
+    }));
+
+    return mealsWithArea;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
+
 });
 
