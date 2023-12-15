@@ -3,12 +3,13 @@ async function searchDish(query = '') {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
     const data = await response.json();
-    return data.meals; 
+    return data.meals;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
+// Function to update the results section
 function updateResults(meals) {
   const resultSection = document.querySelector('.result-section');
 
@@ -39,7 +40,7 @@ function updateResults(meals) {
       resultSection.appendChild(resultTab);
     });
   } else {
-    // Display a message if no results are found
+    // Displaying a message if no results are found
     resultSection.innerHTML = '<p>No results found</p>';
   }
 }
@@ -58,7 +59,8 @@ searchInput.addEventListener('input', async function () {
   if (query.length >= 0) {
     // If there is any input (including empty), perform a search
     const meals = await searchDish(query);
-    updateResults(meals.length > 0 ? meals : await searchDish()); // Show default dishes if no search results
+    // Updating results if there are any search results, else show default dishes
+    updateResults(meals.length > 0 ? meals : await searchDish());
   } else {
     // If the user didn't type anything, show default dishes
     const defaultMeals = await searchDish();
@@ -74,7 +76,8 @@ searchInput.addEventListener('keydown', async function (event) {
     if (query.length >= 0) {
       // If there is any input (including empty), perform a search
       const meals = await searchDish(query);
-      updateResults(meals.length > 0 ? meals : await searchDish()); // Show default dishes if no search results
+      // Updating results if there are any search results, else show default dishes
+      updateResults(meals.length > 0 ? meals : await searchDish());
     } else {
       // If the user didn't type anything, show default dishes
       const defaultMeals = await searchDish();
@@ -82,12 +85,13 @@ searchInput.addEventListener('keydown', async function (event) {
     }
   }
 });
+
 // Function to handle the initial search based on the query parameter
 async function handleInitialSearch() {
-  // Get the dishName from the query parameter (added here)
+  // Get the dishName from the query parameter
   const urlParams = new URLSearchParams(window.location.search);
   const dishName = urlParams.get('dishName');
-  const categoryName = urlParams.get('categoryName'); // added here
+  const categoryName = urlParams.get('categoryName'); // Added here
 
   if (dishName) {
     // Set the search input value on the details page
@@ -97,7 +101,7 @@ async function handleInitialSearch() {
     // Perform initial search based on the dish name
     const meals = await searchDish(dishName);
     updateResults(meals);
-  } else if (categoryName) { 
+  } else if (categoryName) {
     // Perform initial search based on the category name
     const meals = await searchDishByCategory(categoryName);
     updateResults(meals);
@@ -121,6 +125,7 @@ function getSelectedValues(selector) {
   return selectedValues;
 }
 
+// Function to filter dishes based on selected cuisines and categories
 async function filterDishes(selectedCuisines, selectedCategories) {
   try {
     let combinedMeals = [];
@@ -171,10 +176,6 @@ filterButton.addEventListener('click', async function () {
   // Get selected cuisines and categories
   const selectedCuisines = getSelectedValues('.list-1 input[type="checkbox"]');
   const selectedCategories = getSelectedValues('.list-2 input[type="checkbox"]');
-
-  // Log the selected cuisines and categories (for debugging)
-  console.log('Selected Cuisines:', selectedCuisines);
-  console.log('Selected Categories:', selectedCategories);
 
   // Fetch and display filtered dishes
   const filteredMeals = await filterDishes(selectedCuisines, selectedCategories);
