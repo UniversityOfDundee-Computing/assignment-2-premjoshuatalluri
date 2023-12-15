@@ -32,8 +32,8 @@ FlavorFiesta is your go-to culinary companion, offering a delightful exploration
 
 
 ## Paper Prototype
-
-
+![Paper Prototype Image 1](/Prototype/FlavourFiestaPaperPrototype.jpeg)
+Paper Prototype of FlavourFiesta
 
 ## YouTube Links
 
