@@ -87,6 +87,7 @@ async function handleInitialSearch() {
   // Get the dishName from the query parameter (added here)
   const urlParams = new URLSearchParams(window.location.search);
   const dishName = urlParams.get('dishName');
+  const categoryName = urlParams.get('categoryName'); // added here
 
   if (dishName) {
     // Set the search input value on the details page
@@ -95,6 +96,10 @@ async function handleInitialSearch() {
 
     // Perform initial search based on the dish name
     const meals = await searchDish(dishName);
+    updateResults(meals);
+  } else if (categoryName) { 
+    // Perform initial search based on the category name
+    const meals = await searchDishByCategory(categoryName);
     updateResults(meals);
   } else {
     // Load default dishes if no query parameter

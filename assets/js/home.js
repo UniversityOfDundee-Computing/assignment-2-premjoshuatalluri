@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dishSlider = document.getElementById("dishSlider");
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("prevButton");
-  const searchField = document.getElementById("searchInput"); // Added this line
+  const searchField = document.getElementById("searchInput"); 
 
   const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes","Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
 
@@ -67,4 +67,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+  // Event listener for category links
+const categoryLinks = document.querySelectorAll('.categories-card a');
+categoryLinks.forEach(link => {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+    const categoryName = link.id;
+
+    // Perform the search based on the category name
+    searchDishByCategory(categoryName)
+      .then(meals => displayDishes(meals))
+      .catch(error => console.error('Error fetching data:', error));
+  });
 });
+
+// Function to fetch data from MealDB API based on the category
+async function searchDishByCategory(category = '') {
+  try {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+    const data = await response.json();
+    return data.meals;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+});
+
