@@ -3,7 +3,7 @@ async function searchDish(query = '') {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
     const data = await response.json();
-    return data.meals; // Array of meals matching the query
+    return data.meals; 
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -43,9 +43,6 @@ function updateResults(meals) {
     resultSection.innerHTML = '<p>No results found</p>';
   }
 }
-
-
-
 
 // Load default dishes on page load
 document.addEventListener('DOMContentLoaded', async function () {

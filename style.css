@@ -441,8 +441,6 @@ header {
   .filter-results {
     flex-wrap: wrap;
   }
-  .filter-section {
-  }
   
   .filter-section li{
     font-size: small;
