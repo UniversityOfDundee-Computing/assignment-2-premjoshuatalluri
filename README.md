@@ -11,6 +11,7 @@ FlavorFiesta is your go-to culinary companion, offering a delightful exploration
 
 - [Technologies Used](#technologies-used)
 - [APIs Used](#apis-used)
+- [Summary Report](#summary-report)
 - [Paper Prototype](#paper-prototype)
 - [YouTube Links](#youtube-links)
 
@@ -28,6 +29,10 @@ FlavorFiesta is your go-to culinary companion, offering a delightful exploration
 - MealDB
 - Google Places API
 
+## Summary Report
+FlavorFiesta is a dynamic web app centered around The MealDB API, providing an array of recipes. With a user-friendly design, key pages include home, recipe details, and a unique nearby restaurants section powered by Google Places API. Preliminary wireframes ensure an intuitive interface. Elevate your culinary experience with FlavorFiesta. Download the report for a deeper insight.
+
+[Download Summary Report (Word)](/report/Web_Dev_2542659_Summary.docx)
 
 ## Paper Prototype
 ![Paper Prototype Image 1](/Prototype/FlavourFiestaPaperPrototype.jpeg)
