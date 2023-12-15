@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevButton = document.getElementById("prevButton");
 
   const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes","Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
-
+  
   // Fetching data for specific dishes from TheMealDB 
   Promise.all(dishNames.map(dish => fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dish}`)
     .then(response => response.json())))

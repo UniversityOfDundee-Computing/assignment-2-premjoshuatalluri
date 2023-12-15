@@ -438,4 +438,12 @@ header {
   .restaurants-list li{
     font-size: 08px;
   }
+  .filter-results {
+    flex-wrap: wrap;
+  }
+  
+  .filter-section li{
+    font-size: small;
+    padding: 0;
+  }
 }
