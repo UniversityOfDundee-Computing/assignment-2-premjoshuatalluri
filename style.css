@@ -13,6 +13,7 @@ p {
 header {
   padding: 20px;
   background-color: snow;
+  align-items: center;
 }
 
 .logo-light {
@@ -36,6 +37,18 @@ header {
 
 .navbar-link:hover {
   color: lightcoral;
+}
+
+.nav-button {
+  text-decoration: none;
+  background-color: #7289da;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.nav-button:hover {
+  background-color: #4c5ea0;
 }
 
 /* Home page Stylings */
@@ -123,6 +136,10 @@ header {
   width: 230px;
   border: none;
 }
+.dish-card img{
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
 
 .card-button {
   padding: 8px;
@@ -130,6 +147,10 @@ header {
   text-decoration: none;
   color: rgb(46, 46, 46);
   background-color: rgba(176, 213, 231, 0.8);
+  transition: background-color 0.3s ease;
+}
+.card-button:hover {
+  background-color: rgba(109, 144, 161, 0.8);
 }
 
 .slider-container {
@@ -192,6 +213,8 @@ header {
   min-height: 40vh;
   border-radius: 10px;
   padding: 40px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
 .video-bg {
@@ -202,6 +225,7 @@ header {
   transform: translate(-50%, -50%);
   min-width: 100%;
   min-height: 100%;
+  
 }
 
 .cta-button {
