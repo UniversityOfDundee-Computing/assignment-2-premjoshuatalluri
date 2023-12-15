@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Getting references to HTML elements
   const dishContainer = document.getElementById("dishContainer");
   const dishSlider = document.getElementById("dishSlider");
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("prevButton");
-  const searchField = document.getElementById("searchInput"); 
+  const searchField = document.getElementById("searchInput");
 
-  const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes","Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
+  // Array of dish names
+  const dishNames = ["Sushi", "Wontons", "Lasagne", "Pancakes", "Margherita", "Big Mac", "Biryani", "Pasta", "Fried Chicken", "Cake"];
 
   // Fetching data for specific dishes from TheMealDB 
   Promise.all(dishNames.map(dish => fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dish}`)
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error("Error fetching data:", error));
 
+  // Variable to keep track of the starting index for displayed dishes
   let startIndex = 0;
 
   // Function to display dishes based on startIndex
@@ -67,38 +70,37 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
   // Event listener for category links
-const categoryLinks = document.querySelectorAll('.categories-card a');
-categoryLinks.forEach(link => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault();
-    const categoryName = link.id;
+  const categoryLinks = document.querySelectorAll('.categories-card a');
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const categoryName = link.id;
 
-    // Perform the search based on the category name
-    searchDishByCategory(categoryName)
-      .then(meals => displayDishes(meals))
-      .catch(error => console.error('Error fetching data:', error));
+      // Perform the search based on the category name
+      searchDishByCategory(categoryName)
+        .then(meals => displayDishes(meals))
+        .catch(error => console.error('Error fetching data:', error));
+    });
   });
-});
 
-// Function to fetch data from MealDB API based on the category
-async function searchDishByCategory(category = '') {
-  try {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
-    const data = await response.json();
-    
-    // Fetch area details for each meal in the category
-    const mealsWithArea = await Promise.all(data.meals.map(async meal => {
-      const areaResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
-      const areaData = await areaResponse.json();
-      return { ...meal, strArea: areaData.meals[0].strArea };
-    }));
+  // Function to fetch data from MealDB API based on the category
+  async function searchDishByCategory(category = '') {
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+      const data = await response.json();
+      
+      // Fetch area details for each meal in the category
+      const mealsWithArea = await Promise.all(data.meals.map(async meal => {
+        const areaResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`);
+        const areaData = await areaResponse.json();
+        return { ...meal, strArea: areaData.meals[0].strArea };
+      }));
 
-    return mealsWithArea;
-  } catch (error) {
-    console.error('Error fetching data:', error);
+      return mealsWithArea;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
-}
-
 });
-

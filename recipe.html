@@ -5,27 +5,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FlavourFiesta</title>
+  <!-- Font Awesome icons -->
   <script src="https://kit.fontawesome.com/290e127166.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap documentation styles -->
   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <!-- Bootstrap JavaScript Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom styles -->
   <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@200;300;400;500&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS with integrity and crossorigin attributes for added security -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- JavaScript for recipes -->
   <script src="./assets/js/recipes.js"></script>
 </head>
 
 <body>
   <!-- Header section -->
   <header class="header d-flex justify-content-between  sticky-top">
+    <!-- Logo -->
     <a href="index.html" class="logo">
       <img src="./assets/images/logo-light.png" alt="FlavorFiesta" class="logo-light">
     </a>
+    <!-- Navigation -->
     <nav class="navbar">
       <ul class="navbar-list d-flex">
         <li>
@@ -36,28 +43,32 @@
         </li>
       </ul>
     </nav>
-    <button>
-      <a href="/">Buy</a>
-    </button>
+    <!-- Join button -->
+    <a href="/" class="nav-button">Join</a>
   </header>
-  
+
   <main>
     <article>
       <!-- Recipe info section -->
       <section>
         <div class="recipe-container d-flex">
+          <!-- Recipe image -->
           <div>
-            <img src="" alt="" class="recipe-img">
+            <img src="/" alt="" class="recipe-img">
           </div>
+          <!-- Recipe information -->
           <div class="recipe-info">
             <h1></h1>
             <p></p>
+            <!-- Recipe box with ingredients and measurements -->
             <div class="recipe-box">
               <h4 class="text-center">Ingredients</h4>
               <div class="Ing-Meas d-flex">
+                <!-- Ingredients list -->
                 <div class="ingredients-container">
                   <ul class="text-end"></ul>
                 </div>
+                <!-- Measurements list -->
                 <div class="measurements-container">
                   <ul class="text-start"></ul>
                 </div>
@@ -65,6 +76,7 @@
             </div>
           </div>
         </div>
+        <!-- Cooking Instructions accordion -->
         <div class="Cooking Instruction accordion">
           <input type="checkbox" id="cooking-instruction-toggle">
           <label for="cooking-instruction-toggle">Cooking Instructions</label>
@@ -80,10 +92,10 @@
         <h3 class="text-center">
           Watch the Recipe Video!
         </h3>
+        <!-- Video box -->
         <div class="video-box d-flex justify-content-center">
         </div>
       </div>
-
     </section>
     <!-- Nearby Restaurants section -->
     <section class="nearby-restaurants">
@@ -91,7 +103,7 @@
         <h3>Feel Like Not Cooking?</h3>
         <p>Explore Nearby Restaurants!</p>
       </div>
-
+      <!-- Restaurants list -->
       <ul class="restaurants-list d-flex flex-wrap justify-content-center">
       </ul>
     </section>
@@ -102,12 +114,13 @@
       <p class="rights d-flex justify-content-center">© All Rights Reserved</p>
       <p class="follow">Follow the Creator</p>
     </div>
+    <!-- Social media icons -->
     <div class="socials">
-      <i class="fa-brands fa-square-instagram"></i>
-      <i class="fa-brands fa-square-facebook"></i>
-      <i class="fa-brands fa-square-github"></i>
-      <i class="fa-brands fa-linkedin"></i>
-      <i class="fa-brands fa-square-x-twitter"></i>
+      <i class="fa-brands fa-square-instagram"><a href="https://www.instagram.com/joshua__prem/?hl=en"></a></i>
+      <i class="fa-brands fa-square-facebook"><a href="https://www.facebook.com/prem.josh.5"></a></i>
+      <i class="fa-brands fa-square-github"><a href="https://github.com/premjoshuatalluri"></a></i>
+      <i class="fa-brands fa-linkedin"><a href="https://www.linkedin.com/in/premjoshua"></a></i>
+      <i class="fa-brands fa-square-x-twitter"><a href="https://twitter.com/Premjoshua2?t=Ney99mWDtSL1ve8QJyI1bg&s=09"></a></i>
     </div>
   </footer>
 </body>
